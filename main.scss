@@ -1,4 +1,29 @@
 @use "reset";
 @use "variables" as v;
 @use "sass:list";
-@import url("main.css");
+
+@mixin icon($s : 40px) {
+    background-color: rgb(0, 0, 0);
+    width: $s;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    justify-content: center; //focntionne que si on a un display flex
+    align-items: center; //idem
+    display: flex;
+}
+
+/*donner un nom pour passer par ce nom là pour trouver la variale - le main de quel fichier - ici v*/
+
+html {
+    background-color: $main;
+    color: v.$text;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+
+    /*permet de faire des proportionalité pour générer les size*/
+    a {
+        text-decoration: none;
+        color: inherit;
+        /*couleurs en fonction du texte où il se trouve*/
+    }
+}
