@@ -1,121 +1,329 @@
 @use "reset";
 @use "variables" as v;
+@use "sass:list";
 
-@mixin icon($s : 40px) {
-    background-color: rgb(0, 0, 0);
-    width: $s;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 html {
-    background-color: $main;
-    color: $text_1;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: $color-bg;
+    color: $color-text;
+    font-family: $font-main;
     font-size: 16px;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
 }
 
-body {
-    header {
-        position: fixed;
+
+body>header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: $color-bg;
+
+    h1 {
+        font-weight: bold;
+
+        span {
+            background-color: $color-text;
+            color: #000;
+        }
+
+        &:hover {
+            color: $color-accent;
+
+            span {
+                background-color: $color-accent;
+            }
+        }
+    }
+
+    nav {
+        ul {
+            li {
+                display: inline-block;
+
+                a {
+                    color: $color-text;
+                    opacity: 0.5;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 15px;
+
+    ul {
+        list-style: none;
+
+        li {
+            margin-right: 20px;
+
+            a {
+                text-decoration: none;
+                color: #333;
+
+                &:hover {
+                    color: #007bff;
+                }
+            }
+        }
+    }
+}
+
+.intro {
+    background: url("../images/banner2.jpg") no-repeat 50% 50% / cover;
+    padding: 25vh 50px;
+    position: relative;
+
+    &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 69%;
+        background-color: $color-accent;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.2;
+        z-index: 5;
+    }
+
+    >* {
+        position: relative;
+        z-index: 10;
+    }
+
+    h1 {
+        font-size: 3rem;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    p {
+        text-align: center;
+        color: $color-text;
+        opacity: 0.5;
+    }
+
+    div {
+        display: flex;
+        gap: 20px;
+    }
+}
+
+.main {
+    background: url("../images/bg.jpg");
+
+    .main::before {
+        content: "";
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        z-index: 50;
+        height: 50%;
+        background: rgba(255, 255, 255, 0.8);
+        /* blanc avec transparence */
+        z-index: 1;
+        /* voile blanc au-dessus de l’image */
+    }
+
+    .main>* {
+        position: relative;
+        z-index: 2;
+        /* le texte passe au-dessus du voile */
+    }
+
+    p {
+        text-align: center;
+        color: #111;
+    }
+
+    .text-intro {
+        text-align: center;
+        color: #111;
+    }
+
+    .title-intro {
+        text-align: center;
+        color: #111;
+        font-size: 70px;
+    }
+
+    .colors {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        article {
+            width: calc(33.33% - 30px);
+            margin: 10px;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            height: 400px;
+            background-color: #fff;
+
+            i {
+                color: $color-accent;
+                font-size: 80px;
+                padding: 20px;
+                margin: 50px 0 0 170px;
+            }
+
+            h1 {
+                text-align: center;
+                text-transform: uppercase;
+                font-size: 20px;
+                padding-bottom: 20px;
+                color: $text_1;
+            }
+        }
+    }
+}
+
+.cta {
+    background: url("../images/cta01.jpg") no-repeat 50% 50% / cover;
+
+    h1 {
+        font-size: 2rem;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 100px 0 20px;
+    }
+
+    p {
+        text-align: center;
+        color: $color-text;
+        opacity: 0.5;
+        margin: 0 100px 100px;
+        padding-bottom: 100px;
+    }
+}
+
+footer {
+    background-color: $main;
+    color: $main;
+    padding: 80px 100px 40px;
+    font-size: 0.9rem;
+
+    >div {
         display: flex;
         justify-content: space-between;
-        padding: v.$space;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        border-bottom: 1px solid $border (
+            255,
+            255,
+            255,
+            0.1
+        );
+    padding-bottom: 50px;
+    margin-bottom: 30px;
+}
+
+.footer_gauche {
+    flex: 1;
+    min-width: 300px;
+    margin-right: 40px;
+
+    h1 {
+        font-size: 1rem;
         text-transform: uppercase;
+        color: $text_1;
+        margin-bottom: 20px;
+    }
 
-        h1 {
-            font-weight: bold;
+    p {
+        line-height: 1.6;
+        color: $text_1;
+    }
+}
 
-            span {
-                background-color: $main;
-                color: $main;
+.footer_centre {
+    flex: 1;
+    min-width: 250px;
+
+    h1 {
+        font-size: 1rem;
+        text-transform: uppercase;
+        color: $text_1;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            border-bottom: 1px solid $border;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+
+            a {
+                text-decoration: none;
+                color: $text_1;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: $over;
+                }
             }
         }
     }
+}
 
-    .intro {
-        background: url('../images/banner2.jpg') no-repeat 50% 50% / cover;
-        padding: 25vh 5*v.$space;
-        /*5 fois l'espacement*/
-        /*vh pour avoir le pourcentage de la taille de l'ecran*/
+.social {
+    flex: 0.5;
+    min-width: 200px;
+    text-align: left;
 
-        /*2 fois la taille de la police*/
-        >h1 {
-            font-weight: bold;
-            font-size: 3rem;
-            /*3 fois la taille de la police*/
-            border-bottom: v.$line solid v.$text;
-            padding-bottom: 2*v.$space;
-            margin-bottom: 2*v.$space;
-        }
+    h1 {
+        font-size: 1rem;
+        text-transform: uppercase;
+        color: $text_1;
+        margin-bottom: 20px;
+    }
 
-        div {
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
             display: flex;
-            gap: 2*v.$space;
-            /*espacement*/
+            align-items: center;
+            margin-bottom: 15px;
 
-            p {
-                width: calc(50% - v.$space);
-                text-transform: uppercase;
+            i {
+                font-size: 1.2rem;
+                color: $color-text;
+                margin-right: 10px;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: $color-accent;
+                }
             }
         }
-
-        &::before {
-            //ajouter élément inexistant de base
-            content: "";
-            display: block;
-            width: 100%;
-            height: 69%;
-            background-color: v.$main;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0.3;
-            z-index: 5;
-        }
-
-        >* {
-            z-index: 10; //permet de faire apparaitre le texte au dessus de l'image via des calques ordonné via leur numéro
-            position: relative; //obligé de mettre la position pour que z-index fonctionne  
-        }
     }
+}
 
-    .main {
-        background: url("../images/bg.jpg");
-        opacity: 0.5;
-        background-color: #fff;
-
-        .text-intro {
-            text-align: center;
-            color: #fff;
-        }
-
-        .colors {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .colors article {
-            width: calc(33.33% - 20px);
-            margin: 10px;
-        }
-
-        .title-intro {
-            text-align: center;
-            color: #111111;
-            font-size: 70px;
-        }
-    }
-
-
-
+>p {
+    text-align: center;
+    color: $text_1;
+    font-size: 0.8rem;
+}
 
 }
