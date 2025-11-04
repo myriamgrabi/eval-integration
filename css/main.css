@@ -283,3 +283,56 @@ nav ul li a {
     z-index: 10;
     position: relative;
 }
+
+
+
+.text-intro {
+    text-align: center;
+    color: #111111;
+}
+
+.title-intro {
+    text-align: center;
+    color: #111111;
+    font-size: 70px;
+}
+
+.main p {
+    text-align: center;
+    color: #111111;
+    margin-bottom: 50px;
+}
+
+.main {
+    background: url("../images/bg.jpg");
+}
+
+.colors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.colors article {
+    width: calc(33.33% - 30px);
+    margin: 10px;
+    background-color: #ffffff;
+    margin-top: 70px;
+
+}
+
+.colors i {
+    color: #ce1b28;
+    font-size: 80px;
+    padding: 20px;
+    margin-left: 150px;
+    margin-top: 50px;
+}
+
+.colors h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding-bottom: 20px;
+    color: black;
+}

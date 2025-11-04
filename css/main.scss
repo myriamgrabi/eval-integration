@@ -37,61 +37,85 @@ body {
                 background-color: $main;
                 color: $main;
             }
-
-            &:hover {
-                color: v.$over;
-
-                span {
-                    background-color: v.$over;
-                }
-            }
-        }
-
-        .intro {
-            background: url('../images/banner2.jpg') no-repeat 50% 50% / cover;
-            padding: 25vh 5*v.$space;
-            /*5 fois l'espacement*/
-            /*vh pour avoir le pourcentage de la taille de l'ecran*/
-
-            /*2 fois la taille de la police*/
-            >h1 {
-                font-weight: bold;
-                font-size: 3rem;
-                /*3 fois la taille de la police*/
-                border-bottom: v.$line solid v.$text;
-                padding-bottom: 2*v.$space;
-                margin-bottom: 2*v.$space;
-            }
-
-            div {
-                display: flex;
-                gap: 2*v.$space;
-                /*espacement*/
-
-                p {
-                    width: calc(50% - v.$space);
-                    text-transform: uppercase;
-                }
-            }
-
-            &::before {
-                //ajouter élément inexistant de base
-                content: "";
-                display: block;
-                width: 100%;
-                height: 68%;
-                background-color: v.$main;
-                position: absolute;
-                top: 0;
-                left: 0;
-                opacity: 0.3;
-                z-index: 5;
-            }
-
-            >* {
-                z-index: 10; //permet de faire apparaitre le texte au dessus de l'image via des calques ordonné via leur numéro
-                position: relative; //obligé de mettre la position pour que z-index fonctionne  
-            }
         }
     }
+
+    .intro {
+        background: url('../images/banner2.jpg') no-repeat 50% 50% / cover;
+        padding: 25vh 5*v.$space;
+        /*5 fois l'espacement*/
+        /*vh pour avoir le pourcentage de la taille de l'ecran*/
+
+        /*2 fois la taille de la police*/
+        >h1 {
+            font-weight: bold;
+            font-size: 3rem;
+            /*3 fois la taille de la police*/
+            border-bottom: v.$line solid v.$text;
+            padding-bottom: 2*v.$space;
+            margin-bottom: 2*v.$space;
+        }
+
+        div {
+            display: flex;
+            gap: 2*v.$space;
+            /*espacement*/
+
+            p {
+                width: calc(50% - v.$space);
+                text-transform: uppercase;
+            }
+        }
+
+        &::before {
+            //ajouter élément inexistant de base
+            content: "";
+            display: block;
+            width: 100%;
+            height: 69%;
+            background-color: v.$main;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.3;
+            z-index: 5;
+        }
+
+        >* {
+            z-index: 10; //permet de faire apparaitre le texte au dessus de l'image via des calques ordonné via leur numéro
+            position: relative; //obligé de mettre la position pour que z-index fonctionne  
+        }
+    }
+
+    .main {
+        background: url("../images/bg.jpg");
+        opacity: 0.5;
+        background-color: #fff;
+
+        .text-intro {
+            text-align: center;
+            color: #fff;
+        }
+
+        .colors {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .colors article {
+            width: calc(33.33% - 20px);
+            margin: 10px;
+        }
+
+        .title-intro {
+            text-align: center;
+            color: #111111;
+            font-size: 70px;
+        }
+    }
+
+
+
+
 }
